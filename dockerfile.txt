@@ -1,0 +1,17 @@
+
+FROM ubuntu:latest
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy package
+COPY . /app
+
+# Install app dependencies
+RUN apt-get update && apt-get install -y python3 python3-pip
+
+#set the env variables
+ENV NAME World
+
+# Define the command to run the app
+CMD ["python3", "app.py"]
